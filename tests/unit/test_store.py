@@ -245,7 +245,7 @@ def test_listing_notes_does_not_evict_the_room_names(tmp_path):
 
     for i in range(20):
         store.append(tmp_path, f"room{i}", "bot", "hi")
-    store.list_rooms(tmp_path)  # warms the cache with room names
+    store.room_stats(tmp_path)  # warms the cache with room names
     warm = store._listable.cache_info().currsize
     assert warm >= 20
 
@@ -735,7 +735,6 @@ def test_listings_never_echo_a_name_the_validator_would_reject(tmp_path):
     (tmp_path / "rooms" / "ok.jsonl").write_bytes(b'{"seq":1,"ts":"t","from":"b","text":"x"}\n')
     (tmp_path / "rooms" / "bad\nname.jsonl").write_bytes(b'{"seq":1}\n')
     (tmp_path / "rooms" / "UPPER.jsonl").write_bytes(b'{"seq":1}\n')
-    assert store.list_rooms(tmp_path) == ["ok"]
     assert [r["room"] for r in store.room_stats(tmp_path)["rooms"]] == ["ok"]
 
 

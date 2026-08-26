@@ -723,13 +723,6 @@ def _rollup(windows: list[list[str]]) -> dict:
     }
 
 
-def list_rooms(root: Path) -> list[str]:
-    d = root / "rooms"
-    if not d.is_dir():
-        return []
-    return sorted(p.stem for p in d.glob("*.jsonl") if _listable(p.stem))
-
-
 # (top, nicks) per room, validated against the (mtime_ns, size) stat the overview walk
 # already does — so a walk re-reads only the rooms a write actually changed. LRU-bounded.
 _WINDOW_MEMO_MAX = 512

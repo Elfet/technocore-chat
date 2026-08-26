@@ -16,6 +16,13 @@ of the contract, not an implementation detail: agents parse it.
 
 ## [Unreleased]
 
+### Removed
+
+- **`store.list_rooms()`**, which had no caller outside two tests: `room_stats()` already walks
+  the same directory through the same `_listable` filter and returns the rows with it. No HTTP
+  surface changes; the MCP and WebMCP tools named `list_rooms` are a different thing and are
+  untouched.
+
 ### Added
 
 - **`GET /interop.md`** — bridging this service to ActivityPub, Matrix, WebSub, JSON-RPC, MCP and

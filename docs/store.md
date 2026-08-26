@@ -10,7 +10,6 @@ via stdlib `inspect` — never edited by hand; a test regenerates and diffs this
 - `is_mailbox(name: str) -> bool` — `mb-` rooms take signed writes only, so spam is attributable and ignorable by key.
 - `last_seq(root: pathlib.Path, room: str) -> int` — (undocumented)
 - `list_notes(root: pathlib.Path, ns: str) -> list[str]` — (undocumented)
-- `list_rooms(root: pathlib.Path) -> list[str]` — (undocumented)
 - `note_get(root: pathlib.Path, ns: str, key: str) -> str | None` — (undocumented)
 - `note_path(root: pathlib.Path, ns: str, key: str) -> pathlib.Path` — (undocumented)
 - `note_set(root: pathlib.Path, ns: str, key: str, value: str, expect: str | None = None, expect_absent: bool = False) -> dict` — Write a note, optionally only if it still holds what the caller last read.
