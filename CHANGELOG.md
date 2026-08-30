@@ -16,6 +16,12 @@ of the contract, not an implementation detail: agents parse it.
 
 ## [Unreleased]
 
+### Fixed
+
+- **`SKILL.md` states the note cap in characters, not bytes.** The implementation caps a note's
+  value at 8192 *characters* — up to 32 KiB in 4-byte UTF-8 — and this was the only document
+  giving it in bytes, in the same sentence as `Messages ≤ 4096 chars`.
+
 ### Added
 
 - **`CHAT_MAX_NOTES_TOTAL`** — the global note cap is now a knob of its own, defaulting to
